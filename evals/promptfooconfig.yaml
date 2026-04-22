@@ -1,4 +1,4 @@
-description: "{{AGENT_ID}} eval suite"
+description: "newtest eval suite"
 
 prompts:
   - label: "{{prompt_version_label}}"
@@ -7,7 +7,7 @@ prompts:
 providers:
   - id: azureopenai:gpt-4o
     config:
-      apiHost: "{{AZURE_OPENAI_ENDPOINT}}"
+      apiHost: "https://oai-shop-poc.openai.azure.com/"
       deployment: gpt-4o
 
 tests:
