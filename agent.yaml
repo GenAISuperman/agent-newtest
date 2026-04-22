@@ -1,13 +1,13 @@
 agent:
-  id: "{{AGENT_ID}}"
-  team: "{{TEAM_NAME}}"
+  id: "newtest"
+  team: "support"
   runtime: aks
-  interaction_model: "{{INTERACTION_MODEL}}"
-  guardrail_profile: "{{GUARDRAIL_PROFILE}}"
+  interaction_model: "standalone"
+  guardrail_profile: "strict"
 
 identity:
-  sp_client_id: "{{SP_CLIENT_ID}}"
-  keyvault_url: "{{KEYVAULT_URL}}"
+  sp_client_id: "f62f0210-5156-4db9-bf11-963534b222ea"
+  keyvault_url: "https://kv-shop-poc.vault.azure.net/"
 
 tools: []
 
@@ -22,10 +22,10 @@ evaluation:
       path: evals/datasets/golden-dataset.json
 
 output_policy:
-  violation_threshold: {{VIOLATION_THRESHOLD}}
-  window_minutes: {{WINDOW_MINUTES}}
-  action: {{OUTPUT_ACTION}}
-  notify_webhook: {{NOTIFY_WEBHOOK}}
+  violation_threshold: 4
+  window_minutes: 1
+  action: alert
+  notify_webhook: 
 
 prompts:
   active_version: v1.0
