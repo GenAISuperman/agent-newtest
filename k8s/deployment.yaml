@@ -1,32 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "{{AGENT_ID}}"
-  namespace: "agents-{{TEAM_NAME}}"
+  name: "newtest"
+  namespace: "agents-support"
   labels:
-    app: "{{AGENT_ID}}"
-    team: "{{TEAM_NAME}}"
+    app: "newtest"
+    team: "support"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: "{{AGENT_ID}}"
+      app: "newtest"
   template:
     metadata:
       labels:
-        app: "{{AGENT_ID}}"
-        team: "{{TEAM_NAME}}"
+        app: "newtest"
+        team: "support"
         azure.workload.identity/use: "true"
     spec:
-      serviceAccountName: "sa-{{AGENT_ID}}"
+      serviceAccountName: "sa-newtest"
       containers:
-        - name: "{{AGENT_ID}}"
-          image: "{{ACR_LOGIN_SERVER}}/agents/{{AGENT_ID}}:latest"
+        - name: "newtest"
+          image: "acrshoppoc.azurecr.io/agents/newtest:latest"
           ports:
             - containerPort: 8000
           envFrom:
             - configMapRef:
-                name: "config-{{AGENT_ID}}"
+                name: "config-newtest"
           resources:
             requests:
               cpu: 250m
